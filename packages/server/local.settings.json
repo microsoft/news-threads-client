@@ -1,0 +1,13 @@
+{
+	"IsEncrypted": false,
+	"Values": {
+		"AzureWebJobsStorage": "",
+		"FUNCTIONS_WORKER_RUNTIME": "node",
+		"AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL": "true",
+		"DEBUG": "newsthreads*"
+	},
+	"Host": {
+		"LocalHttpPort": 7071,
+		"CORS": "*"
+	}
+}

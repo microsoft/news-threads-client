@@ -1,0 +1,14 @@
+{
+	"database": {
+		"url": "DATABASE_URL",
+		"connect_timeout": "DATABASE_CONNECT_TIMEOUT",
+		"appname": "DATABASE_APP_NAME"
+	},
+	"auth": {
+		"disabled": "AUTH_DISABLED",
+		"jwksUri": "AUTH_JWKS_URI"
+	},
+	"apollo": {
+		"muteErrors": "MUTE_SERVICE_ERRORS"
+	}
+}

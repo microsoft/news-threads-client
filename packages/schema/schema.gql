@@ -1,0 +1,694 @@
+#
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license. See LICENSE file in the project.
+#
+
+scalar Long
+"""
+The Root Query;
+This is the entry point for all data retrieval in the system
+"""
+type Query {
+	"""
+	Get all the available datasets.
+	This is not paged, and has no query arguments, because it's small and static for now.
+	"""
+	datasets: [Dataset!]!
+
+	"""
+	Get a document by ID
+	"""
+	document(id: String!): Document
+
+	"""
+	Get document stats
+	"""
+	documentStats(id: String!): DocumentStats
+
+	"""
+	Gets domain info
+	"""
+	domain(id: String!): Domain
+
+	"""
+	Find documents in the system
+	"""
+	documents(
+		"""
+		the dataset id to query in
+		"""
+		dataset: String!
+
+		"""
+		The text query to apply
+		"""
+		query: String
+
+		"""
+		The domain name to filter by
+		"""
+		domain: String
+
+		"""
+		If present, only include results with the given domain rating
+		"""
+		domainRating: DomainRating
+
+		"""
+		The date lowerbound to apply
+		"""
+		minDate: String
+
+		"""
+		The date upperbound to apply
+		"""
+		maxDate: String
+
+		"""
+		The minimum domain score to apply
+		"""
+		minDomainScore: Float
+
+		"""
+		The maxiumum domain score to apply
+		"""
+		maxDomainScore: Float
+
+		"""
+		The minimum instanceVariant ratio to apply
+		"""
+		minInstanceVariantRatio: Float
+
+		"""
+		The maxiumum instanceVariant ratio to apply
+		"""
+		maxInstanceVariantRatio: Float
+
+		"""
+		The minimum intanceDuplicate ratio to apply
+		"""
+		minInstanceDuplicateRatio: Float
+
+		"""
+		The maxiumum instanceDuplicate ratio to apply
+		"""
+		maxInstanceDuplicateRatio: Float
+
+		"""
+		The document sorting strategy to apply
+		"""
+		sortBy: DocumentSortBy
+
+		"""
+		The sorting direction to apply
+		"""
+		sortDirection: SortDirection
+
+		"""
+		Offset to use for pagination
+		"""
+		offset: Long
+
+		"""
+		Pagesize to use for pagination
+		"""
+		count: Long
+	): DocumentsResultPage
+
+	"""
+	Find textual source documents for a document
+	"""
+	sourceDocuments(
+		"""
+		The ID to find source documents for
+		"""
+		id: String!
+	): [Document!]
+
+	"""
+	Find document clusters
+	"""
+	documentClusters(
+		"""
+		The dataset to find sentence clusters in
+		"""
+		dataset: String
+
+		"""
+		What field to sort by
+		"""
+		sortField: DocumentClusterSortBy
+
+		"""
+		The direction to sort by
+		"""
+		sortDirection: SortDirection
+
+		"""
+		Offset to use for pagination
+		"""
+		offset: Long
+
+		"""
+		Pagesize to use for pagination
+		"""
+		count: Long
+	): DocumentClusterResultPage
+
+	"""
+	Find permutations of a given sentence id ordered by publication date
+	"""
+	sentenceInstances(
+		dataset: String!
+		sid: Long!
+		variantsOnly: Boolean
+	): [Sentence!]!
+
+	"""
+	Get day-by-day term-count aggregation for the given
+	query and timerange
+	"""
+	dailyTermAggregate(
+		"""
+		The type of aggregate to use
+		"""
+		aggregate: DailyTermAggregate
+
+		"""
+		The dataset to query against
+		"""
+		dataset: String!
+
+		"""
+		The term to find daily counts for
+		"""
+		term: String!
+
+		"""
+		The start date, in ISO-8601 format
+		"""
+		startDate: String
+
+		"""
+		The end date, in ISO-8601 format
+		"""
+		endDate: String
+	): [DailyTermCount!]!
+
+	"""
+	Get sentence clusters
+	"""
+	sentenceClusters(
+		dataset: String!
+		sort: SentenceClusterSortBy!
+		dir: SortDirection
+		limit: Long!
+		query: String
+	): [SentenceCluster!]!
+
+	domainStats(
+		"""
+		the dataset id to query in
+		"""
+		dataset: String!
+
+		"""
+		The domain name to filter by
+		"""
+		domain: String
+
+		"""
+		If present, only include results with the given domain rating
+		"""
+		domainRating: DomainRating
+
+		"""
+		The minimum domain score to apply
+		"""
+		minDomainScore: Float
+
+		"""
+		The maxiumum domain score to apply
+		"""
+		maxDomainScore: Float
+
+		"""
+		The document sorting strategy to apply
+		"""
+		sortBy: DomainStatsSortBy
+
+		"""
+		The sorting direction to apply
+		"""
+		sortDirection: SortDirection
+
+		"""
+		Offset to use for pagination
+		"""
+		offset: Long
+
+		"""
+		Pagesize to use for pagination
+		"""
+		count: Long
+	): DomainStatsResultPage
+}
+
+enum DailyTermAggregate {
+	Terms
+	Queries
+}
+
+"""
+The sorting field to use with documents
+"""
+enum DocumentSortBy {
+	"""
+	Sort documents by score
+	"""
+	Score
+
+	"""
+	Sort documents by publication date
+	"""
+	Date
+
+	"""
+	Sort documents by the trustworthiness of their domains
+	"""
+	DomainScore
+
+	"""
+	Sort documents by instance variant ratio
+	"""
+	Variation
+
+	"""
+	Sort documents by instance duplicate ratio
+	"""
+	Duplication
+}
+
+enum SentenceClusterSortBy {
+	Instances
+	Variants
+	Duplicates
+	InstanceVariantRatio
+	InstanceDuplicateRatio
+}
+
+"""
+The sort-by fields available for hierarchical sentence clusters
+"""
+enum DocumentClusterSortBy {
+	Instances
+	Variants
+	Duplicates
+	InstanceVariantRatio
+	InstanceDuplicateRatio
+}
+
+enum DomainStatsSortBy {
+	Domain
+	Score
+	Rating
+	Documents
+	Instances
+	Variants
+	Duplicates
+	InstanceVariantRatio
+	InstanceDuplicateRatio
+}
+
+enum SortDirection {
+	"""
+	Ascending Sort
+	"""
+	Ascending
+
+	"""
+	Descending Sort
+	"""
+	Descending
+}
+
+"""
+A set of feature flags particular to a dataset
+"""
+type DatasetFeatureFlags {
+	dailyTermCounts: Boolean
+	dailyQueryCounts: Boolean
+	sentenceAnalysis: Boolean
+	docstats: Boolean
+	domains: Boolean
+}
+
+"""
+A Dataset
+"""
+type Dataset {
+	"""
+	The ID for this dataset
+	"""
+	id: String!
+
+	"""
+	The user-friendly label for this dataset
+	"""
+	label: String!
+
+	"""
+	The starting date of documents in this dataset
+	"""
+	startDate: String
+
+	"""
+	The ending date of documents in this dataset
+	"""
+	endDate: String
+
+	"""
+	Defines whether or not the dataset is the default dataset
+	"""
+	default: Boolean
+
+	features: DatasetFeatureFlags
+}
+
+"""
+A Document in the Corupus
+"""
+type Document {
+	"""
+	The unique ID for this document. This is a compound key of `${dataset}|${docid}`
+	"""
+	id: String!
+
+	"""
+	The unique id for this document local to the dataset
+	"""
+	docid: String!
+
+	"""
+	The title of the document
+	"""
+	title: String!
+
+	"""
+	The URL this document was published at
+	"""
+	url: String!
+
+	"""
+	The publication date of the document
+	"""
+	date: String!
+
+	"""
+	Whether this document is an opinion piece
+	"""
+	opinion: Boolean!
+
+	"""
+	Whether this document is a fact-checking piece
+	"""
+	factCheck: Boolean!
+
+	"""
+	The domain stored directly within the document
+	 Used when additional domain collection is not available
+	"""
+	domainId: String!
+
+	"""
+	The domain this document belongs to
+	"""
+	domain: Domain!
+
+	"""
+	Document stats
+	"""
+	stats: DocumentStats!
+
+	"""
+	The hierarchical clusters this document is a member of
+	"""
+	clusters(
+		"""
+		The epsilon qualifier to filter clusters by
+		"""
+		epsilon: Long
+	): [DocumentCluster]!
+
+	"""
+	The relevance of this document to a search (if searched)
+	"""
+	score: Float
+
+	"""
+	The sentences associated with this document
+	"""
+	sentences: [Sentence!]!
+}
+
+"""
+Document level stats.
+"""
+type DocumentStats {
+	id: String!
+	docid: String!
+	instanceCount: Long!
+	variantCount: Long!
+	duplicateCount: Long!
+	instanceVariantRatio: Float!
+	instanceDuplicateRatio: Float!
+}
+
+"""
+A content domain and its trustworthiness ratings
+"""
+type Domain {
+	id: String!
+	domain: String!
+	parentDomain: String!
+	rating: DomainRating!
+	"""
+	ISO-8601 Date
+	"""
+	lastUpdated: String!
+	language: String!
+	country: String!
+
+	"""
+	A numerical quality rating from 0-100, not applicable to domains with rating=Parody
+	"""
+	score: Float
+
+	doesNotRepeatedlyPublishFalseContent: Boolean
+	presentsInformationResponsibly: Boolean
+	regularlyCorrectsErrors: Boolean
+	handlesNewsVsOpinion: Boolean
+	avoidsDesceptiveHeadlines: Boolean
+	disclosesOwnership: Boolean
+	clearlyLabelsAdvertising: Boolean
+	revealsWhoIsInCharge: Boolean
+	providesAuthorNames: Boolean
+}
+
+"""
+A categorical quality rating of a domain
+"""
+enum DomainRating {
+	Trustworthy
+	NotTrustworthy
+	Parody
+	Unknown
+}
+
+type DomainStats {
+	id: String!
+	domain: String!
+	rating: DomainRating!
+	score: Float
+	documents: Long
+	instanceCount: Long
+	duplicateCount: Long
+	variantCount: Long
+	instanceVariantRatio: Float
+	instanceDuplicateRatio: Float
+}
+
+"""
+A sentence within a document
+"""
+type Sentence {
+	"""
+	The sentence id of interest
+	"""
+	id: String!
+
+	"""
+	The unique id of this sentence local to the dataset
+	"""
+	sid: Long!
+
+	"""
+	The document the sentence is in
+	"""
+	document: Document!
+
+	"""
+	The index of the sentence in the document
+	"""
+	sindex: Long!
+
+	"""
+	The id of the sentence match cluster
+	TODO: remove when rest is removed
+	"""
+	cid: Long!
+
+	"""
+	The fuzzy-matching cluster this sentence belongs to
+	"""
+	cluster: SentenceCluster!
+
+	"""
+	The sentence this sentence is derived from. Todo: remove and replace w/ direct sentence
+	"""
+	sourceId: Long!
+
+	"""
+	The sentence text
+	"""
+	text: String!
+
+	"""
+	The source sentence text - TODO: remove and replace w/ source link (see sourceId field)
+	"""
+	sourceText: String
+
+	#
+	# TODO: Why are these on the sentence AND sentence cluster?
+	instanceCount: Long!
+	variantCount: Long!
+	duplicateCount: Long!
+}
+
+"""
+Hierarchical DBScan Clusters of documents
+"""
+type DocumentCluster {
+	id: String!
+	"""
+	The local id of this cluster in the dataset
+	"""
+	clusterId: Long!
+	documentCount: Long!
+	documents: [Document!]!
+	epsilon: Float!
+}
+
+"""
+Fuzzy-Matching Clusters of sentences
+"""
+type SentenceCluster {
+	id: String!
+
+	"""
+	The dataset-local identifier for this cluster
+	"""
+	clusterId: Long!
+	"""
+	The source sentence id (local) - todo make global
+	"""
+	sourceId: Long!
+
+	instanceCount: Long
+	duplicateCount: Long
+	variantCount: Long
+	instanceVariantRatio: Float
+	instanceDuplicateRatio: Float
+	sourceSentenceText: String
+}
+
+type DailyTermCount {
+	term: String!
+	"""
+	ISO-8601 formatted date string
+	"""
+	date: String!
+	count: Float!
+}
+
+"""
+A query-result page for documents
+"""
+type DocumentsResultPage {
+	"""
+	the documents data
+	"""
+	data: [Document!]!
+
+	"""
+	The total number of documents this query found.
+	"""
+	totalCount: Long!
+
+	"""
+	The offset used to fetch this page
+	"""
+	offset: Long!
+
+	"""
+	A flag indicating whether another page of data exists
+	"""
+	hasNextPage: Boolean!
+}
+
+type DocumentClusterResultPage {
+	"""
+	the documents data
+	"""
+	data: [DocumentCluster!]!
+
+	"""
+	The total number of documents this query found.
+	"""
+	totalCount: Long!
+
+	"""
+	The offset used to fetch this page
+	"""
+	offset: Long!
+
+	"""
+	A flag indicating whether another page of data exists
+	"""
+	hasNextPage: Boolean!
+}
+
+"""
+A query-result page for domain stats
+"""
+type DomainStatsResultPage {
+	"""
+	the data
+	"""
+	data: [DomainStats!]!
+
+	"""
+	The total number of domains this query found.
+	"""
+	totalCount: Long!
+
+	"""
+	The offset used to fetch this page
+	"""
+	offset: Long!
+
+	"""
+	A flag indicating whether another page of data exists
+	"""
+	hasNextPage: Boolean!
+}

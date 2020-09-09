@@ -1,0 +1,6 @@
+{
+	"apollo": {
+		"playground": false,
+		"perfTracing": false
+	}
+}

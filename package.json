@@ -1,0 +1,40 @@
+{
+	"name": "newsthreads",
+	"version": "0.0.1",
+	"main": "index.js",
+	"license": "MIT",
+	"private": true,
+	"engines": {
+		"node": ">= 12.0",
+		"pnpm": ">= 5"
+	},
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"slurp": "node ./packages/scripts/lib/index.js",
+		"clean": "pnpm run clean -r --stream --parallel",
+		"build": "pnpm run build -r --stream",
+		"bundle": "pnpm run bundle -r --stream",
+		"start": "pnpm run start -r --stream --parallel",
+		"deploy": "pnpm run deploy -r --stream --parallel",
+		"deploy:client": "pnpm run deploy --filter @newsthreads/client",
+		"lint": "essex lint --docs",
+		"test": "echo essex test",
+		"prettify": "essex prettify",
+		"git_is_clean": "essex git-is-clean",
+		"ci": "cross-env CI=true run-s build lint bundle test git_is_clean"
+	},
+	"devDependencies": {
+		"@essex/prettier-config": "^9.2.1",
+		"@essex/scripts": "^9.2.3",
+		"cross-env": "^7.0.2",
+		"eslint-plugin-graphql": "^4.0.0",
+		"husky": "^4.2.5",
+		"lint-staged": "^10.2.11",
+		"npm-run-all": "^4.1.5",
+		"typescript": "^3.9.7"
+	},
+	"resolutions": {
+		"@types/react": "16.9.44",
+		"@types/react-native": "npm:@types/react@16.9.44"
+	}
+}

@@ -1,0 +1,511 @@
+{
+	"fragment_summaries": {
+		"fields": {
+			"docid": {
+				"name": "_docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"sid": {
+				"name": "_sentence_id",
+				"type": "int",
+				"index": 1
+			},
+			"sindex": {
+				"name": "_document_sentence_index",
+				"type": "int",
+				"index": 1
+			},
+			"clusterId": {
+				"name": "sentence_cluster_id",
+				"type": "int",
+				"index": 1
+			},
+			"sourceId": {
+				"name": "_source_sentence_id",
+				"type": "int",
+				"index": 1
+			}
+		}
+	},
+	"fragment_summaries_lsh": {
+		"fields": {
+			"docid": {
+				"name": "_docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"sid": {
+				"name": "_sentence_id",
+				"type": "int",
+				"index": 1
+			},
+			"sindex": {
+				"name": "_document_sentence_index",
+				"type": "int",
+				"index": 1
+			},
+			"clusterId": {
+				"name": "sentence_cluster_id",
+				"type": "int",
+				"index": 1
+			},
+			"sourceId": {
+				"name": "_source_sentence_id",
+				"type": "int",
+				"index": 1
+			}
+		}
+	},
+	"documents": {
+		"fields": {
+			"url": {
+				"name": "_url",
+				"type": "string",
+				"index": "hashed"
+			},
+			"title": {
+				"name": "_title",
+				"type": "string",
+				"index": "text"
+			},
+			"docid": {
+				"name": "_docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"domain": {
+				"name": "_domain",
+				"type": "string"
+			},
+			"date": {
+				"name": "_publication_date",
+				"type": "date",
+				"index": 1
+			},
+			"opinion": {
+				"name": "_is_opinion",
+				"type": "bool"
+			},
+			"factCheck": {
+				"name": "_is_fact_checked",
+				"type": "bool"
+			}
+		}
+	},
+	"sentence_id_lookup": {
+		"fields": {
+			"sid": {
+				"name": "_sentence_id",
+				"type": "int",
+				"index": 1
+			},
+			"text": {
+				"name": "_text",
+				"type": "string",
+				"index": "text"
+			}
+		}
+	},
+	"joined_cluster_labels": {
+		"fields": {
+			"docid": {
+				"name": "document_id",
+				"type": "text",
+				"index": "hashed"
+			},
+			"clusterId": {
+				"name": "cluster_id",
+				"type": "int",
+				"index": 1
+			},
+			"epsilon": {
+				"name": "epsilon",
+				"type": "int",
+				"index": 1
+			}
+		}
+	},
+	"sentence_cluster_summaries": {
+		"fields": {
+			"clusterId": {
+				"name": "clusterId",
+				"type": "int",
+				"index": 1
+			},
+			"sourceId": {
+				"name": "sourceId",
+				"type": "int",
+				"index": 1
+			},
+			"instanceCount": {
+				"name": "instanceCount",
+				"type": "int",
+				"index": 1
+			},
+			"duplicateCount": {
+				"name": "duplicateCount",
+				"type": "int",
+				"index": 1
+			},
+			"variantCount": {
+				"name": "variantCount",
+				"type": "int",
+				"index": 1
+			},
+			"instanceVariantRatio": {
+				"name": "instanceVariantRatio",
+				"type": "double",
+				"index": 1
+			},
+			"instanceDuplicateRatio": {
+				"name": "instanceDuplicateRatio",
+				"type": "double",
+				"index": 1
+			},
+			"sourceSentenceText": {
+				"name": "sourceSentenceText",
+				"type": "string",
+				"index": "text"
+			}
+		}
+	},
+	"PRECOMPUTE_docsearch": {
+		"fields": {
+			"docid": {
+				"name": "docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"url": {
+				"name": "url",
+				"type": "string",
+				"index": "hashed"
+			},
+			"title": {
+				"name": "title",
+				"type": "string",
+				"index": "text"
+			},
+			"domain": {
+				"name": "domain",
+				"type": "string",
+				"index": "hashed"
+			},
+			"fullDomain": {
+				"name": "domain",
+				"type": "string",
+				"index": "hashed"
+			},
+			"date": {
+				"name": "date",
+				"type": "date",
+				"index": -1
+			},
+			"opinion": {
+				"name": "opinion",
+				"type": "bool"
+			},
+			"factCheck": {
+				"name": "factCheck",
+				"type": "bool"
+			},
+			"instanceCount": {
+				"name": "instanceCount",
+				"type": "int",
+				"index": 1
+			},
+			"variantCount": {
+				"name": "variantCount",
+				"type": "int",
+				"index": 1
+			},
+			"duplicateCount": {
+				"name": "duplicateCount",
+				"type": "int",
+				"index": 1
+			},
+			"instanceVariantRatio": {
+				"name": "instanceVariantRatio",
+				"type": "double",
+				"index": 1
+			},
+			"instanceDuplicateRatio": {
+				"name": "instanceDuplicateRatio",
+				"type": "double",
+				"index": 1
+			},
+			"domainRating": {
+				"name": "domainRating",
+				"type": "text"
+			},
+			"domainScore": {
+				"name": "domainScore",
+				"type": "number",
+				"index": 1
+			},
+			"domainDoesNotRepeatedlyPublishFalseContent": {
+				"name": "domainDoesNotRepeatedlyPublishFalseContent",
+				"type": "bool"
+			},
+			"domainPresentsInformationResponsibly": {
+				"name": "domainPresentsInformationResponsibly",
+				"type": "bool"
+			},
+			"domainRegularlyCorrectsErrors": {
+				"name": "domainRegularlyCorrectsErrors",
+				"type": "bool"
+			},
+			"domainHandlesNewsVsOpinion": {
+				"name": "domainHandlesNewsVsOpinion",
+				"type": "bool"
+			},
+			"domainDisclosesOwnership": {
+				"name": "domainDisclosesOwnership",
+				"type": "bool"
+			},
+			"domainAvoidsDeceptiveHeadlines": {
+				"name": "domainAvoidsDeceptiveHeadlines",
+				"type": "bool"
+			},
+			"domainClearlyLabelsAdvertising": {
+				"name": "domainClearlyLabelsAdvertising",
+				"type": "bool"
+			},
+			"domainRevealsWhoIsInCharge": {
+				"name": "domainRevealsWhoIsInCharge",
+				"type": "bool"
+			},
+			"domainProvidesAuthorNames": {
+				"name": "domainProvidesAuthorNames",
+				"type": "bool"
+			}
+		}
+	},
+	"docsearch": {
+		"fields": {
+			"docid": {
+				"name": "docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"url": {
+				"name": "url",
+				"type": "string",
+				"index": "hashed"
+			},
+			"title": {
+				"name": "title",
+				"type": "string",
+				"index": "text"
+			},
+			"domain": {
+				"name": "domain",
+				"type": "string",
+				"index": "hashed"
+			},
+			"fullDomain": {
+				"name": "domain",
+				"type": "string",
+				"index": "hashed"
+			},
+			"date": {
+				"name": "date",
+				"type": "date",
+				"index": -1
+			},
+			"opinion": {
+				"name": "opinion",
+				"type": "bool"
+			},
+			"factCheck": {
+				"name": "factCheck",
+				"type": "bool"
+			},
+			"instanceCount": {
+				"name": "instanceCount",
+				"type": "int",
+				"index": 1
+			},
+			"variantCount": {
+				"name": "variantCount",
+				"type": "int",
+				"index": 1
+			},
+			"duplicateCount": {
+				"name": "duplicateCount",
+				"type": "int",
+				"index": 1
+			},
+			"instanceVariantRatio": {
+				"name": "instanceVariantRatio",
+				"type": "double",
+				"index": 1
+			},
+			"instanceDuplicateRatio": {
+				"name": "instanceDuplicateRatio",
+				"type": "double",
+				"index": 1
+			},
+			"domainRating": {
+				"name": "domainRating",
+				"type": "text"
+			},
+			"domainScore": {
+				"name": "domainScore",
+				"type": "number",
+				"index": 1
+			},
+			"domainDoesNotRepeatedlyPublishFalseContent": {
+				"name": "domainDoesNotRepeatedlyPublishFalseContent",
+				"type": "bool"
+			},
+			"domainPresentsInformationResponsibly": {
+				"name": "domainPresentsInformationResponsibly",
+				"type": "bool"
+			},
+			"domainRegularlyCorrectsErrors": {
+				"name": "domainRegularlyCorrectsErrors",
+				"type": "bool"
+			},
+			"domainHandlesNewsVsOpinion": {
+				"name": "domainHandlesNewsVsOpinion",
+				"type": "bool"
+			},
+			"domainDisclosesOwnership": {
+				"name": "domainDisclosesOwnership",
+				"type": "bool"
+			},
+			"domainAvoidsDeceptiveHeadlines": {
+				"name": "domainAvoidsDeceptiveHeadlines",
+				"type": "bool"
+			},
+			"domainClearlyLabelsAdvertising": {
+				"name": "domainClearlyLabelsAdvertising",
+				"type": "bool"
+			},
+			"domainRevealsWhoIsInCharge": {
+				"name": "domainRevealsWhoIsInCharge",
+				"type": "bool"
+			},
+			"domainProvidesAuthorNames": {
+				"name": "domainProvidesAuthorNames",
+				"type": "bool"
+			}
+		}
+	},
+	"PRECOMPUTE_docstats": {
+		"fields": {
+			"docid": {
+				"name": "docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"instanceCount": {
+				"name": "instanceCount",
+				"type": "int"
+			},
+			"variantCount": {
+				"name": "variantCount",
+				"type": "int"
+			},
+			"duplicateCount": {
+				"name": "duplicateCount",
+				"type": "int"
+			},
+			"instanceVariantRatio": {
+				"name": "instanceVariantRatio",
+				"type": "double"
+			},
+			"instanceDuplicateRatio": {
+				"name": "instanceDuplicateRatio",
+				"type": "double"
+			}
+		}
+	},
+	"daily_counts": {
+		"fields": {
+			"date": {
+				"name": "date",
+				"type": "date",
+				"index": 1
+			},
+			"text": {
+				"name": "text",
+				"type": "text",
+				"index": "hashed"
+			},
+			"count": {
+				"name": "count",
+				"type": "int"
+			}
+		}
+	},
+	"PRECOMPUTE_domain_summaries": {
+		"fields": {
+			"domain": {
+				"name": "domain",
+				"type": "string",
+				"index": "hashed"
+			},
+			"rating": {
+				"name": "rating",
+				"type": "text",
+				"index": "hashed"
+			},
+			"score": {
+				"name": "score",
+				"type": "number",
+				"index": 1
+			},
+			"documents": {
+				"name": "documents",
+				"type": "int",
+				"index": 1
+			},
+			"instanceCount": {
+				"name": "instanceCount",
+				"type": "int",
+				"index": 1
+			},
+			"variantCount": {
+				"name": "variantCount",
+				"type": "int",
+				"index": 1
+			},
+			"duplicateCount": {
+				"name": "duplicateCount",
+				"type": "int",
+				"index": 1
+			},
+			"instanceVariantRatio": {
+				"name": "instanceVariantRatio",
+				"type": "double",
+				"index": 1
+			},
+			"instanceDuplicateRatio": {
+				"name": "instanceDuplicateRatio",
+				"type": "double",
+				"index": 1
+			}
+		}
+	},
+	"PRECOMPUTE_query_counts": {
+		"fields": {
+			"date": {
+				"name": "date",
+				"type": "date",
+				"index": 1
+			},
+			"text": {
+				"name": "text",
+				"type": "text",
+				"index": "hashed"
+			},
+			"count": {
+				"name": "count",
+				"type": "number"
+			}
+		}
+	}
+}

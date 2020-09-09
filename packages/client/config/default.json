@@ -1,0 +1,25 @@
+{
+	"api": {
+		"url": {
+			"restApi": "http://localhost:7071/api",
+			"graphqlApi": "http://localhost:7071/api/graphql"
+		}
+	},
+	"auth": {
+		"disabled": true,
+		"use_logger": true,
+		"authority": "",
+		"client_id": "TODO_SET_CLIENT_ID",
+		"redirect_uri": "http://localhost:8080/",
+		"scopes": "openid|User.ReadBasic.All|User.Read.All|User.ReadWrite.All"
+	},
+	"feature": {
+		"apolloDevTools": true,
+		"renderTracking": false,
+		"apolloClientBatching": true
+	},
+	"search": {
+		"debounce": 250,
+		"count": 50
+	}
+}

@@ -1,0 +1,114 @@
+{
+	"domains": {
+		"fields": {
+			"uuid": {
+				"name": "UUID",
+				"type": "string",
+				"index": "hashed"
+			},
+			"domain": {
+				"name": "Domain",
+				"type": "string",
+				"index": "hashed"
+			},
+			"parentDomain": {
+				"name": "Parent Domain",
+				"type": "string",
+				"index": 1
+			},
+			"rating": {
+				"name": "Rating",
+				"type": "string"
+			},
+			"score": {
+				"name": "Score",
+				"type": "double"
+			},
+			"lastUpdated": {
+				"name": "Last Updated",
+				"type": "date",
+				"hint": "fromNumber"
+			},
+			"language": {
+				"name": "Language",
+				"type": "string"
+			},
+			"country": {
+				"name": "Country",
+				"type": "string"
+			},
+			"doesNotRepeatedlyPublishFalseContent": {
+				"name": "Does not repeatedly publish false content",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"presentsInformationResponsibly": {
+				"name": "Gathers and presents information responsibly",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"regularlyCorrectsErrors": {
+				"name": "Regularly corrects or clarifies errors",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"handlesNewsVsOpinion": {
+				"name": "Handles the difference between news and opinion responsibly",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"avoidsDeceptiveHeadlines": {
+				"name": "Avoids deceptive headlines",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"disclosesOwnership": {
+				"name": "Website discloses ownership and financing",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"clearlyLabelsAdvertising": {
+				"name": "Clearly labels advertising",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"revealsWhoIsInCharge": {
+				"name": "Reveals who's in charge, including any possible conflicts of interest",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			},
+			"providesAuthorNames": {
+				"name": "The site provides names of content creators, along with either contact or biographical information",
+				"type": "bool",
+				"valueMap": {
+					"Yes": true,
+					"No": false
+				}
+			}
+		}
+	}
+}

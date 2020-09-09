@@ -1,0 +1,163 @@
+{
+	"fragment_summaries": {
+		"fields": {
+			"docid": {
+				"name": "docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"sid": {
+				"name": "sent",
+				"type": "int",
+				"index": 1
+			},
+			"sindex": {
+				"name": "sentnum",
+				"type": "int",
+				"index": 1
+			},
+			"clusterId": {
+				"name": "sent",
+				"type": "int",
+				"index": 1
+			},
+			"sourceId": {
+				"name": "sent",
+				"type": "int",
+				"index": 1
+			}
+		}
+	},
+	"documents": {
+		"fields": {
+			"url": {
+				"name": "_url",
+				"type": "string",
+				"index": "hashed"
+			},
+			"title": {
+				"name": "_title",
+				"type": "string",
+				"index": "text"
+			},
+			"docid": {
+				"name": "_docid",
+				"type": "string",
+				"index": "hashed"
+			},
+			"domain": {
+				"name": "_domain",
+				"type": "string",
+				"index": "hashed"
+			},
+			"date": {
+				"name": "_publication_date",
+				"type": "date",
+				"index": -1
+			},
+			"opinion": {
+				"name": "_is_opinion",
+				"type": "bool"
+			},
+			"factCheck": {
+				"name": "_is_fact_checked",
+				"type": "bool"
+			}
+		}
+	},
+	"sentence_id_lookup": {
+		"fields": {
+			"sid": {
+				"name": "_sentence_id",
+				"type": "int",
+				"index": 1
+			},
+			"text": {
+				"name": "_text",
+				"type": "string",
+				"index": "text"
+			}
+		}
+	},
+	"joined_cluster_labels": {
+		"fields": {
+			"docid": {
+				"name": "docid",
+				"type": "text",
+				"index": "hashed"
+			},
+			"clusterId": {
+				"name": "clusterid",
+				"type": "int",
+				"index": 1
+			},
+			"epsilon": {
+				"name": "epsilon",
+				"type": "int",
+				"index": 1
+			}
+		}
+	},
+	"sentence_cluster_summaries": {
+		"fields": {
+			"clusterId": {
+				"name": "clusterId",
+				"type": "int",
+				"index": 1
+			},
+			"sourceId": {
+				"name": "sourceId",
+				"type": "int",
+				"index": 1
+			},
+			"instanceCount": {
+				"name": "instanceCount",
+				"type": "int",
+				"index": 1
+			},
+			"duplicateCount": {
+				"name": "duplicateCount",
+				"type": "int",
+				"index": 1
+			},
+			"variantCount": {
+				"name": "variantCount",
+				"type": "int",
+				"index": 1
+			},
+			"instanceVariantRatio": {
+				"name": "instanceVariantRatio",
+				"type": "double",
+				"index": 1
+			},
+			"instanceDuplicateRatio": {
+				"name": "instanceDuplicateRatio",
+				"type": "double",
+				"index": 1
+			},
+			"sourceSentenceText": {
+				"name": "sourceSentenceText",
+				"type": "string",
+				"index": "text"
+			}
+		}
+	},
+	"daily_counts": {
+		"fields": {
+			"date": {
+				"name": "date",
+				"type": "date",
+				"index": 1
+			},
+			"text": {
+				"name": "text",
+				"type": "text",
+				"index": "hashed"
+			},
+			"count": {
+				"name": "count",
+				"type": "int"
+			}
+		}
+	}
+}

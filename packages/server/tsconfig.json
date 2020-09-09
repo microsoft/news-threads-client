@@ -1,0 +1,15 @@
+{
+	"extends": "../../tsconfig",
+	"compilerOptions": {
+		"target": "ES2017",
+		"module": "CommonJS",
+		"outDir": "dist/",
+		"allowJs": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"resolveJsonModule": true,
+		"sourceMap": true,
+		"noImplicitAny": false
+	},
+	"include": ["src/**/*"]
+}

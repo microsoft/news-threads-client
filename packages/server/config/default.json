@@ -1,0 +1,17 @@
+{
+	"auth": {
+		"disabled": true,
+		"jwksUri": "TODO_SET_JWKS_URI"
+	},
+	"database": {
+		"url": "mongodb://localhost:27017/",
+		"connect_timeout": 10000,
+		"appname": "newsdive"
+	},
+	"apollo": {
+		"debug": true,
+		"playground": true,
+		"muteErrors": false,
+		"perfTracing": true
+	}
+}

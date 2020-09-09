@@ -1,0 +1,7 @@
+{
+	"feature": {
+		"apolloDevTools": false,
+		"renderTracking": false,
+		"dailySparklinesCharts": false
+	}
+}
