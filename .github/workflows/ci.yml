@@ -46,16 +46,17 @@ jobs:
           SERVER_CD_ENABLED: true
           GRAPHQL_API: ${{ secrets.GRAPHQL_API }}
           
-  deploy:
-    name: Deploy
-    runs-on: ubuntu-latest
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-    needs:
-      - build
-    steps:
-
-      - name: deploy cient
+      - name: Deploy Client
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: pnpm deploy:client
         env:
           CLIENT_DEPLOY_AZURE_CONTAINER: ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER }}
-          CLIENT_DEPLOY_AZURE_CONTAINER_KEY: ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER_KEY }}
+          CLIENT_DEPLOY_AZURE_CONTAINER_KEY: ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER_KEY }} 
+          
+      - name: Deploy Server
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+        uses: Azure/functions-action@v1.1.5
+        with:
+          app-name: ${{ secrets.SERVER_DEPLOY_AZURE_FUNCTION_APPNAME }}
+          package: ${{ GITUB_WORKSPACE }}/packages/server/deploy.zip
+          publish-profile: ${ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
