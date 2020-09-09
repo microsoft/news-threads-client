@@ -10,7 +10,7 @@
 		"start:functions": "func start",
 		"start": "run-p start:tsc start:functions",
 		"build": "tsc -p .",
-		"bundle": "pnpm slurp zip deploy.zip config dist graphql host.json package.json",
+		"bundle": "pnpm slurp zip deploy.zip config dist graphql node_modules host.json package.json",
 		"deploy": "func azure functionapp publish newsdive-api"
 	},
 	"dependencies": {
