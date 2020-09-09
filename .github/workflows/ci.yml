@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the main branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Install pnpm
+        run: npm install -g pnpm
+        
+      - name: Install dependencies
+        run: pnpm install
+        
+      - name: pnpm CI
+        run: pnpm ci
+        env:
+          NODE_ENV: production
+          CI: true
+          AUTH_AUTHORITY: ${{ secrets.AUTH_AUTHORITY }}
+          AUTH_CLIENT_ID: ${{ secrets.AUTH_CLIENT_ID }} 
+          AUTH_DISABLED: 0
+          AUTH_REDIRECT_URI: ${{ secrets.AUTH_REDIRECT_URI }}
+          CLIENT_CD_ENABLED: true
+          SERVER_CD_ENABLED: true
+          GRAPHQL_API: ${{ secrets.GRAPHQL_API }}
+          
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+    needs:
+      - build
+    steps:
+
+      - name: deploy cient
+        run: pnpm deploy:client
+        env:
+          CLIENT_DEPLOY_AZURE_CONTAINER: ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER }}
+          CLIENT_DEPLOY_AZURE_CONTAINER_KEY: ${{ CLIENT_DEPLOY_AZURE_CONTAINER_KEY }}
