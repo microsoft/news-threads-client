@@ -36,8 +36,6 @@ jobs:
       - name: pnpm CI
         run: pnpm ci
         env:
-          NODE_ENV: production
-          CI: true
           AUTH_AUTHORITY: ${{ secrets.AUTH_AUTHORITY }}
           AUTH_CLIENT_ID: ${{ secrets.AUTH_CLIENT_ID }} 
           AUTH_DISABLED: 0
