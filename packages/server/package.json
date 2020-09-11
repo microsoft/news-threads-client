@@ -12,9 +12,11 @@
 		"build": "tsc -p .",
 		"bundle:clean": "essex clean node_modules",
 		"bundle:npm-install": "npm install --production",
+		"bundle:mkdir": "shx mkdir -p ./node_modules/@newsthreads/schema",
+		"bundle:copy-schema": "shx cp -rf ../schema/ ./node_modules/@newsthreads/schema/",
 		"bundle:pnpm-install": "pnpm install",
 		"bundle:server": "pnpm slurp zip deploy.zip config dist graphql node_modules host.json package.json",
-		"bundle": "run-s bundle:clean bundle:npm-install bundle:server",
+		"bundle": "run-s bundle:clean bundle:npm-install bundle:mkdir bundle:copy-schema bundle:server",
 		"postbundle": "run-s bundle:clean bundle:pnpm-install",
 		"deploy": "func azure functionapp publish newsdive-api"
 	},

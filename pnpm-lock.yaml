@@ -8,6 +8,7 @@ importers:
       husky: 4.3.0
       lint-staged: 10.3.0
       npm-run-all: 4.1.5
+      shx: 0.3.2
       typescript: 3.9.7
     specifiers:
       '@essex/prettier-config': ^9.2.1
@@ -17,6 +18,7 @@ importers:
       husky: ^4.2.5
       lint-staged: ^10.2.11
       npm-run-all: ^4.1.5
+      shx: ^0.3.2
       typescript: ^3.9.7
   packages/client:
     dependencies:
@@ -9227,7 +9229,6 @@ packages:
     resolution:
       integrity: sha1-p96IkUGgWpSwhUQDstCg+/qY87c=
   /es6-object-assign/1.1.0:
-    dev: false
     resolution:
       integrity: sha1-wsNYJlYkfDnqEHyx5mUrb58kUjw=
   /es6-shim/0.35.5:
@@ -17685,7 +17686,6 @@ packages:
       es6-object-assign: 1.1.0
       minimist: 1.2.5
       shelljs: 0.8.4
-    dev: false
     engines:
       node: '>=4'
     hasBin: true
