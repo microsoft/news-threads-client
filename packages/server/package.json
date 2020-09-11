@@ -10,7 +10,12 @@
 		"start:functions": "func start",
 		"start": "run-p start:tsc start:functions",
 		"build": "tsc -p .",
-		"bundle": "pnpm slurp zip deploy.zip config dist graphql node_modules host.json package.json",
+		"bundle:clean": "shx rm -rf \"./node_modules\"",
+		"bundle:npm-install": "npm install --prod",
+		"bundle:pnpm-install": "pnpm install",
+		"bundle:server": "pnpm slurp zip deploy.zip config dist graphql node_modules host.json package.json",
+		"bundle": "run-s bundle:clean bundle:npm-install bundle:server",
+		"postbundle": "run-s bundle:clean bundle:pnpm-install",
 		"deploy": "func azure functionapp publish newsdive-api"
 	},
 	"dependencies": {
@@ -31,6 +36,7 @@
 		"@types/debug": "^4.1.5",
 		"@types/lodash": "^4.14.159",
 		"@types/mongodb": "^3.5.25",
-		"@types/node": "^14.0.27"
+		"@types/node": "^14.0.27",
+		"shx": "^0.3.2"
 	}
 }
