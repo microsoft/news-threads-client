@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { promises as fs, createWriteStream } from 'fs'
+import { promises as fs, createWriteStream, existsSync } from 'fs'
 import * as path from 'path'
 import archiver from 'archiver'
 
@@ -55,15 +55,17 @@ async function walkDir(directory: string): Promise<string[]> {
 
 		for (const file of directoryFiles) {
 			const filePath = path.join(currentDirectoryPath, file)
-			const stats = await fs.stat(filePath)
-			if (stats.isFile()) {
-				allFiles = [...allFiles, filePath]
-			} else if (stats.isDirectory()) {
-				directoryStack.push(filePath)
-			} else {
-				console.warn(
-					`${filePath} is not a file or directory. Skipping compression`,
-				)
+			if (existsSync(filePath)) {
+				const stats = await fs.stat(filePath)
+				if (stats.isFile()) {
+					allFiles = [...allFiles, filePath]
+				} else if (stats.isDirectory()) {
+					directoryStack.push(filePath)
+				} else {
+					console.warn(
+						`${filePath} is not a file or directory. Skipping compression`,
+					)
+				}
 			}
 		}
 	}
