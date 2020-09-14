@@ -46,10 +46,7 @@ jobs:
           
       - name: Deploy Client
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        run: pnpm deploy:client
-        env:
-          CLIENT_DEPLOY_AZURE_CONTAINER: ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER }}
-          CLIENT_DEPLOY_AZURE_CONTAINER_KEY: ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER_KEY }} 
+        run: pnpm deploy:client -- --storageAccount ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER }} --storageAccountKey ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER_KEY }}
           
       - name: Deploy Server
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
