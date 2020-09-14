@@ -72,6 +72,6 @@
 		"start": "essex serve",
 		"build": "tsc --noEmit",
 		"bundle": "cross-env NODE_ENV=production essex bundle",
-		"deploy": "node deploy.js"
+		"deploy": "essex deploy"
 	}
 }
