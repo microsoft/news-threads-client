@@ -1,3 +1,5 @@
+![CI](https://github.com/microsoft/news-threads-client/workflows/CI/badge.svg)
+
 # Introduction
 
 News Threads Client is a web application for exploring and tracing news provenance across time over a collection of documents. This project can ingest and analyze data produced by the [News-Threads](https://github.com/microsoft/News-Threads) data pipeline.
