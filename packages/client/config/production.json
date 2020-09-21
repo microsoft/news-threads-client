@@ -1,4 +1,7 @@
 {
+	"auth": {
+		"disabled": false
+	},
 	"feature": {
 		"apolloDevTools": false,
 		"renderTracking": false,
