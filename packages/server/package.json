@@ -5,22 +5,19 @@
 	"private": true,
 	"scripts": {
 		"slurp": "node ../scripts/lib/index.js",
-		"clean": "essex clean dist",
+		"clean": "essex clean build dist",
 		"start:tsc": "tsc -w --preserveWatchOutput",
+		"start:wp": "webpack -w",
 		"start:functions": "func start",
-		"start": "run-p start:tsc start:functions",
-		"build": "tsc -p .",
-		"bundle:clean": "essex clean node_modules",
-		"bundle:npm-install": "npm install --production",
-		"bundle:mkdir": "shx mkdir -p ./node_modules/@newsthreads/schema/lib",
-		"bundle:copy-schema": "shx cp -rf ../schema/* ./node_modules/@newsthreads/schema",
-		"bundle:pnpm-install": "pnpm install",
-		"bundle:server": "pnpm slurp zip deploy.zip config dist graphql node_modules host.json package.json",
-		"bundle": "run-s bundle:clean bundle:npm-install bundle:mkdir bundle:copy-schema bundle:server",
-		"postbundle": "run-s bundle:clean bundle:pnpm-install",
-		"deploy": "func azure functionapp publish newsdive-api"
+		"start": "run-p start:wp start:functions",
+		"build:tsc": "tsc -p .",
+		"build:wp": "webpack",
+		"build": "run-s build:tsc build:wp",
+		"bundle": "pnpm slurp zip deploy.zip config dist graphql host.json package.json",
+		"deploy": "cross-env-shell az functionapp deployment source config-zip --subscription $NT_SUBSCRIPTION -g $NT_GROUP -n $NT_API_NAME --src ./deploy.zip"
 	},
 	"dependencies": {
+		"@newsthreads/schema": "^0.0.1",
 		"apollo-server-azure-functions": "^2.16.1",
 		"config": "^3.3.1",
 		"dataloader": "^2.0.0",
@@ -33,11 +30,14 @@
 	},
 	"devDependencies": {
 		"@azure/functions": "^1.2.2",
-		"@newsthreads/schema": "^0.0.1",
 		"@types/config": "^0.0.36",
 		"@types/debug": "^4.1.5",
 		"@types/lodash": "^4.14.159",
 		"@types/mongodb": "^3.5.25",
-		"@types/node": "^14.0.27"
+		"@types/node": "^14.0.27",
+		"graphql-tag": "^2.11.0",
+		"ts-loader": "^8.0.4",
+		"webpack": "^4.44.2",
+		"webpack-cli": "^3.3.12"
 	}
 }
