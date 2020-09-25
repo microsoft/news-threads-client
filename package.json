@@ -16,7 +16,6 @@
 		"bundle": "pnpm bundle -r --stream",
 		"start": "pnpm start -r --stream --parallel",
 		"deploy": "pnpm deploy -r --stream --parallel",
-		"deploy:client": "pnpm deploy --filter @newsthreads/client",
 		"lint": "essex lint --docs",
 		"test": "echo essex test",
 		"prettify": "essex prettify",
