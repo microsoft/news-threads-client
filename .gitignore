@@ -10,7 +10,7 @@ coverage/
 packages/*/lib/
 packages/*/dist/
 packages/*/build/
-*.zip
+packages/*/*.zip
 
 # misc
 .DS_Store
