@@ -3384,7 +3384,7 @@ __metadata:
     "@essex/scripts": ^11.0.1
     "@essex/webpack-config": ^10.0.2
     "@fluentui/react": ^7.126.0
-    "@newsthreads/schema": 0.0.1
+    "@newsthreads/schema": "workspace:packages/schema"
     "@reduxjs/toolkit": ^1.4.0
     "@thematic/color": ^0.8.0
     "@thematic/core": ^0.8.0
@@ -3444,7 +3444,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@newsthreads/schema@0.0.1, @newsthreads/schema@^0.0.1, @newsthreads/schema@workspace:packages/schema":
+"@newsthreads/schema@workspace:packages/schema":
   version: 0.0.0-use.local
   resolution: "@newsthreads/schema@workspace:packages/schema"
   dependencies:
@@ -3492,7 +3492,7 @@ __metadata:
   dependencies:
     "@azure/functions": ^1.2.2
     "@essex/scripts": ^11.0.1
-    "@newsthreads/schema": ^0.0.1
+    "@newsthreads/schema": "workspace:packages/schema"
     "@types/config": ^0.0.36
     "@types/debug": ^4.1.5
     "@types/lodash": ^4.14.162

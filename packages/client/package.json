@@ -11,7 +11,7 @@
 		"@essex-js-toolkit/hooks": "^1.1.2",
 		"@essex-js-toolkit/themed-components": "^1.1.2",
 		"@fluentui/react": "^7.126.0",
-		"@newsthreads/schema": "0.0.1",
+		"@newsthreads/schema": "workspace:packages/schema",
 		"@reduxjs/toolkit": "^1.4.0",
 		"@thematic/color": "^0.8.0",
 		"@thematic/core": "^0.8.0",
