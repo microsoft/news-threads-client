@@ -11,7 +11,7 @@ News Threads Client is a web application for exploring and tracing news provenan
 ## Prerequisites
 
 - [**Node**](https://nodejs.org) (check `package.json::engines` for version details)
-- [**Pnpm**](https://pnpm.js.org/en/) (check `package.json::engines` for version details)
+- [**Yarn**](https://yarnpkg.com)
 - [**MongoDB**](https://mongodb.com)
 - [**Azure CLI**](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 - [**Azure Functions Core**](https://github.com/Azure/azure-functions-core-tools)
@@ -27,8 +27,8 @@ By default, the Azure Function API will run on port `7071` and connect to a loca
 ## Startup
 
 ```sh
-> pnpm install # --ignore-engines (if azure gives you grief about node version)
-> pnpm start
+> yarn # --ignore-engines (if azure gives you grief about node version)
+> yarn start
 ```
 
 The webapp will be available at http://localhost:8080

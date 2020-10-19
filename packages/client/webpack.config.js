@@ -11,3 +11,13 @@ const config = configure({
 })
 
 module.exports = config
+
+config.resolve.extensions.push('.mjs')
+config.module.rules.push(
+	// fixes https://github.com/graphql/graphql-js/issues/1272
+	{
+		test: /\.mjs$/,
+		include: /node_modules/,
+		type: 'javascript/auto',
+	},
+)

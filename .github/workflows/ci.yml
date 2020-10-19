@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: pnpm CI
+      - name: CI Verification
         run: yarn ci
         env:
           AUTH_AUTHORITY: ${{ secrets.AUTH_AUTHORITY }}
@@ -43,7 +43,7 @@ jobs:
       - name: Deploy Client
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
-          pnpm deploy --filter @newsthreads/client -- \
+          yarn deploy:cloint \
           --storageAccount ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER }} \
           --storageAccountKey ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER_KEY }}
 

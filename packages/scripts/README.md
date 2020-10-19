@@ -1,9 +1,9 @@
 ## Available Commands
 
-Commands are available through `pnpm slurp <command>`.
+Commands are available through `yarn slurp <command>`.
 
 ```sh
-> pnpm slurp --help
+> yarn slurp --help
 
 Usage: index [options] [command]
 
@@ -21,7 +21,7 @@ Commands:
   help [command]                            display help for command
 ```
 
-> **Note:** Run `pnpm build` once before running `pnpm slurp` commands.
+> **Note:** Run `yarn build` once before running `yarn slurp` commands.
 
 ## Working with News-Threads Data
 
@@ -39,19 +39,19 @@ Some metrics are precomputed using scripts from this package. Precomputes may mo
 With dataset files located in `~/news-data/<dataset>`, run the following precompute command.
 
 ```sh
-> pnpm slurp precompute <dataset> --stats terms,sentences
+> yarn slurp precompute <dataset> --stats terms,sentences
 ```
 
-> **Note:** Use `--dataroot <directory>` option to specify a data directory other than the default location of `~/news-data/`. Run `pnpm slurp <command> -- --help` for a full list of options.
+> **Note:** Use `--dataroot <directory>` option to specify a data directory other than the default location of `~/news-data/`. Run `yarn slurp <command> -- --help` for a full list of options.
 
 ## Ingest
 
-`pnpm slurp ingest <dataset>` uploads dataset files (`~/news-data/<dataset>`) to a [MongoDB](https://www.mongodb.com/) instance according to a schema. Schema files map CSV filenames and their columns to MongoDB document properties and indexes. See [config.python.json](config.python.json) for the default schema that works with [News-Threads](https://github.com/microsoft/News-Threads) datasets.
+`yarn slurp ingest <dataset>` uploads dataset files (`~/news-data/<dataset>`) to a [MongoDB](https://www.mongodb.com/) instance according to a schema. Schema files map CSV filenames and their columns to MongoDB document properties and indexes. See [config.python.json](config.python.json) for the default schema that works with [News-Threads](https://github.com/microsoft/News-Threads) datasets.
 
 Run the following ingest command to upload `~/news-data/<dataset>` to a local MongoDB instance (mongodb://localhost:27017/).
 
 ```sh
-> pnpm slurp ingest <dataset> --schema ./config.python.json
+> yarn slurp ingest <dataset> --schema ./config.python.json
 ```
 
 > **Note:** Use `--dbUrl <dbUrl>` option to specify a MongoDB instance other than the default location of mongodb://localhost:27017/.

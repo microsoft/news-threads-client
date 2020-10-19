@@ -70,7 +70,7 @@ export const DocumentGems: React.FC<GemsProps> = memo(function DocumentGems({
 						score={variation}
 						radius={6}
 						fill={colorScale(1).hex()}
-						scale={scale}
+						scale={scale as (input: number) => number}
 					/>
 				</Group>
 				<Group
@@ -81,7 +81,7 @@ export const DocumentGems: React.FC<GemsProps> = memo(function DocumentGems({
 						score={duplication}
 						radius={6}
 						fill={colorScale(2).hex()}
-						scale={scale}
+						scale={scale as (input: number) => number}
 					/>
 				</Group>
 			</Visible>

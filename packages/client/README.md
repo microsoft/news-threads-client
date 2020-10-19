@@ -4,7 +4,7 @@ This package contains the client portion of the News Threads application.
 
 In the project directory, you can run:
 
-### `pnpm start`
+### `yarn start`
 
 Runs the app in the development mode.<br>
 Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
@@ -14,7 +14,7 @@ You will also see any lint errors in the console.
 
 The running application expects a GraphQL API as defined in [config.json](./config/default.json).
 
-### `pnpm bundle`
+### `yarn bundle`
 
 Builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -32,9 +32,9 @@ Setup Azure Storage for hosting static websites as described in [this article](h
 
 ### Deploy
 
-Run `pnpm deploy --storage-account '<storage-account-name>' --storage-account-key '<storage-account-key>'`
+Run `yarn deploy --storage-account '<storage-account-name>' --storage-account-key '<storage-account-key>'`
 
-> **Note:** Need to run `pnpm bundle` before deploying.
+> **Note:** Need to run `yarn bundle` before deploying.
 
 #### Environment variables
 
@@ -43,4 +43,4 @@ Set the following system environment variables in order to deploy using environm
 - `AZURE_STORAGE_ACCOUNT` : The Azure Storage account name.
 - `AZURE_STORAGE_ACCOUNT_KEY` : An access key to the Azure Storage account.
 
-Run `pnpm deploy`.
+Run `yarn deploy`.
