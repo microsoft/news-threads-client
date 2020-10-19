@@ -19,7 +19,6 @@ packages/*/*.zip
 .env.test.local
 .env.production.local
 local-*.json
-packages/server/package-lock.json
 
 **/*.log*
 report.*
