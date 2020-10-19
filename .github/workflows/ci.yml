@@ -43,7 +43,7 @@ jobs:
       - name: Deploy Client
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
         run: |
-          yarn deploy:cloint \
+          yarn deploy:client \
           --storageAccount ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER }} \
           --storageAccountKey ${{ secrets.CLIENT_DEPLOY_AZURE_CONTAINER_KEY }}
 
