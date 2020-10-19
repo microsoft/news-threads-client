@@ -18,25 +18,25 @@
 	},
 	"dependencies": {
 		"@newsthreads/schema": "^0.0.1",
-		"apollo-server-azure-functions": "^2.16.1",
+		"apollo-server-azure-functions": "^2.18.2",
 		"config": "^3.3.1",
 		"dataloader": "^2.0.0",
-		"debug": "^4.1.1",
+		"debug": "^4.2.0",
 		"graphql": "^14.7.0",
 		"jsonwebtoken": "^8.5.1",
-		"jwks-rsa": "^1.8.1",
-		"lodash": "^4.17.19",
-		"mongodb": "^3.6.0"
+		"jwks-rsa": "^1.10.1",
+		"lodash": "^4.17.20",
+		"mongodb": "^3.6.2"
 	},
 	"devDependencies": {
 		"@azure/functions": "^1.2.2",
 		"@types/config": "^0.0.36",
 		"@types/debug": "^4.1.5",
-		"@types/lodash": "^4.14.159",
-		"@types/mongodb": "^3.5.25",
-		"@types/node": "^14.0.27",
+		"@types/lodash": "^4.14.162",
+		"@types/mongodb": "^3.5.28",
+		"@types/node": "^14.11.10",
 		"graphql-tag": "^2.11.0",
-		"ts-loader": "^8.0.4",
+		"ts-loader": "^8.0.5",
 		"webpack": "^4.44.2",
 		"webpack-cli": "^3.3.12"
 	}

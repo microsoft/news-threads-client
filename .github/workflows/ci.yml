@@ -27,14 +27,11 @@ jobs:
         with:
           node-version: 12.x
 
-      - name: Install pnpm
-        run: npm install -g pnpm
-
       - name: Install dependencies
-        run: pnpm install
+        run: yarn
 
       - name: pnpm CI
-        run: pnpm ci
+        run: yarn ci
         env:
           AUTH_AUTHORITY: ${{ secrets.AUTH_AUTHORITY }}
           AUTH_CLIENT_ID: ${{ secrets.AUTH_CLIENT_ID }}

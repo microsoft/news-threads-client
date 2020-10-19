@@ -9,9 +9,9 @@
 /coverage
 
 # production
-lib/
-dist/
-build/
+packages/*/lib/
+packages/*/dist/
+packages/*/build/
 *.zip
 
 # misc
@@ -26,3 +26,11 @@ packages/server/package-lock.json
 **/*.log*
 report.*
 azure-functions-core-tools/
+
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions

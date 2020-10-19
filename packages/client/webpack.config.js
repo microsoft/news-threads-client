@@ -6,6 +6,7 @@ const { configure } = require('@essex/webpack-config')
 const ConfigWebpackPlugin = require('config-webpack')
 
 const config = configure({
+	pnp: true,
 	plugins: () => [new ConfigWebpackPlugin()],
 })
 
