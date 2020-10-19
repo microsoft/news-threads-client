@@ -12,10 +12,6 @@ module.exports = (env, argv) => {
 		entry: {
 			index: path.resolve(__dirname, './src/index.ts'),
 		},
-		externals: {
-			config: 'commonjs2 config',
-			mongodb: 'commonjs2 mongodb',
-		},
 		output: {
 			path: path.resolve(__dirname, './dist'),
 			filename: '[name].js',

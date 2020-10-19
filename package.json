@@ -43,10 +43,5 @@
 	},
 	"workspaces": [
 		"packages/*"
-	],
-	"dependenciesMeta": {
-		"config@3.3.2": {
-			"unplugged": true
-		}
-	}
+	]
 }
