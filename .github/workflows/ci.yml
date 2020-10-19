@@ -28,7 +28,7 @@ jobs:
           node-version: 12.x
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install
 
       - name: CI Verification
         run: yarn ci
