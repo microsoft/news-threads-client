@@ -58,8 +58,8 @@ export const TimelineStrip: React.FC<TimelineProps> = memo(
 				.enter()
 				.append('line')
 				.attr('class', 'bar')
-				.attr('x1', xScale)
-				.attr('x2', xScale)
+				.attr('x1', xScale as (input: number) => number)
+				.attr('x2', xScale as (input: number) => number)
 				.attr('y1', 0)
 				.attr('y2', height)
 				.attr('stroke', (d, i) =>

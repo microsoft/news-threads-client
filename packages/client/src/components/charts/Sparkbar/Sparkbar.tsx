@@ -138,7 +138,7 @@ export const Sparkbar: React.FC<SparkbarProps> = memo(function Sparkbar({
 			const hScale = scaleLinear().domain(ext).range([0, height])
 			const x = xScale ? xScale : (d, i) => i * (barWidth + barGap)
 			const h = d => (nodataFn(d) ? height : hScale(value(d)))
-			const y = d => height - h(d)
+			const y = d => height - (h(d) || 0)
 
 			if (barGroup) {
 				barGroup.selectAll('*').remove()

@@ -247,7 +247,7 @@ export const TimeBrush: React.FC<TimeBrushProps> = memo(function TimeBrush({
 				const [start, end] = brushRange
 				const sx = xScale(start)
 				const ex = xScale(end)
-				brush.move(select('.brush'), [sx, ex])
+				brush.move(select('.brush'), [sx, ex] as any)
 			} else {
 				// Clear out brush when date range is maxed out.
 				brush.move(select('.brush'), null)

@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 const path = require('path')
+const PnpWebpackPlugin = require(`pnp-webpack-plugin`)
 
 module.exports = (env, argv) => {
 	return {
@@ -17,7 +18,11 @@ module.exports = (env, argv) => {
 			libraryTarget: 'commonjs2',
 		},
 		resolve: {
+			plugins: [PnpWebpackPlugin],
 			extensions: ['.tsx', '.ts', '.mjs', '.js'],
+		},
+		resolveLoader: {
+			plugins: [PnpWebpackPlugin.moduleLoader(module)],
 		},
 		module: {
 			rules: [

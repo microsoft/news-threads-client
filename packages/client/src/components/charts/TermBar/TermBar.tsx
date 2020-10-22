@@ -71,7 +71,7 @@ export const TermBar: React.FC<TermBarProps> = memo(function TermBar({
 			height={height}
 			id={id}
 			value={accessor}
-			xScale={xScale}
+			xScale={xScale as (input: unknown, i: number) => number}
 			selected={selected}
 			barWidth={barWidth}
 			marked={marked}

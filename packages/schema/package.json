@@ -14,11 +14,11 @@
 		"start": "graphql-codegen -w"
 	},
 	"devDependencies": {
-		"@graphql-codegen/cli": "^1.17.7",
-		"@graphql-codegen/introspection": "^1.17.7",
-		"@graphql-codegen/typescript": "^1.17.7",
-		"@graphql-codegen/typescript-operations": "^1.17.7",
-		"@graphql-codegen/typescript-resolvers": "^1.17.7",
+		"@graphql-codegen/cli": "^1.18.0",
+		"@graphql-codegen/introspection": "^1.18.0",
+		"@graphql-codegen/typescript": "^1.17.11",
+		"@graphql-codegen/typescript-operations": "^1.17.8",
+		"@graphql-codegen/typescript-resolvers": "^1.17.10",
 		"graphql": "^14.7.0"
 	}
 }

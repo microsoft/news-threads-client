@@ -1,18 +1,16 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-**/node_modules
-/.pnp
-.pnp.js
+node_modules/
 
 # testing
-/coverage
+coverage/
 
 # production
-lib/
-dist/
-build/
-*.zip
+packages/*/lib/
+packages/*/dist/
+packages/*/build/
+packages/*/*.zip
 
 # misc
 .DS_Store
@@ -21,8 +19,15 @@ build/
 .env.test.local
 .env.production.local
 local-*.json
-packages/server/package-lock.json
 
 **/*.log*
 report.*
 azure-functions-core-tools/
+
+# https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions

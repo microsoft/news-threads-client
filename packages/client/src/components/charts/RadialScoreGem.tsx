@@ -54,14 +54,14 @@ export const RadialScoreGem: React.FC<RadialScoreGemProps> = memo(
 				<Ring
 					radius={radius}
 					arcWidth={arcWidth}
-					scale={scale}
+					scale={scale as (input: number) => number}
 					score={1}
 					fill={emptyFill}
 				/>
 				<Ring
 					radius={radius}
 					arcWidth={arcWidth}
-					scale={scale}
+					scale={scale as (input: number) => number}
 					fill={dataPathFill}
 					score={dataScore}
 				/>

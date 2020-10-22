@@ -1,7 +1,8 @@
 {
-	"recommendations": [
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"kumar-harsh.graphql-for-vscode"
-	]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "kumar-harsh.graphql-for-vscode",
+    "arcanis.vscode-zipfs"
+  ]
 }
