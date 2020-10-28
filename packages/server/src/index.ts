@@ -3,7 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable graphql/template-strings */
-import { ApolloServer, gql } from 'apollo-server-azure-functions'
+import {
+	ApolloServer,
+	gql,
+	AuthenticationError,
+} from 'apollo-server-azure-functions'
 import config from 'config'
 import { createDataSources } from './dataSources'
 import { decodeToken } from './decodeToken'
@@ -24,14 +28,27 @@ export const server = new ApolloServer({
 	resolvers: resolvers as any,
 	context: async ({ context, request }) => {
 		if (authDisabled) {
-			return { user: null }
+			return { accessTokenClaims: null }
 		} else {
-			const token = request.headers.authorization
-			const user = await decodeToken(token)
-			if (!user) {
-				throw new Error('could not authenticate user with token ' + token)
+			const authorizationHeader = request.headers.authorization
+			if (!authorizationHeader) {
+				throw new AuthenticationError(
+					`Authentication error. Authorization header is missing`,
+				)
 			}
-			return { user }
+			const [, accessToken] = authorizationHeader.split(' ')
+			if (!accessToken) {
+				throw new AuthenticationError(
+					`Authentication error. Unable to parse Bearer accessToken from Authorization header: ${authorizationHeader}.`,
+				)
+			}
+
+			try {
+				const accessTokenClaims = await decodeToken(accessToken)
+				return { accessTokenClaims }
+			} catch (ex) {
+				throw new AuthenticationError(`Authentication error: ${ex.message}`)
+			}
 		}
 	},
 	dataSources: createDataSources as any,

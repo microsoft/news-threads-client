@@ -3,8 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import config from 'config'
+import debug from 'debug'
 import jwt from 'jsonwebtoken'
 import jwksClient from 'jwks-rsa'
+
+const log = debug('newsthreads:gql')
 
 /**
  * Get the signing public-key of the Identity Provider service
@@ -29,31 +32,39 @@ function getSigningKeyPromise(kid: string, client): Promise<string> {
 	})
 }
 
-//this function will actually check the JWT idToken to see if it's valid,
-export async function decodeToken(idToken: string | undefined): Promise<any> {
-	if (!idToken) {
-		return null
-	}
-	const parsed = jwt.decode(idToken, { complete: true }) as Record<string, any>
+// this function will actually check the JWT token to see if it's valid,
+export async function decodeToken(accessToken: string): Promise<any> {
+	log('Unparsed accessToken: %s', accessToken)
+	const parsed = jwt.decode(accessToken, { complete: true }) as Record<
+		string,
+		any
+	>
 	const kid = parsed?.header?.kid
 
-	//the signing key will be stored in a Json Web Key Set (basically just a list of signing keys, this will point our client at Microsot's key set)
+	// Load the appropriate public key from the AAD Tenant.
 	const client = jwksClient({
 		strictSsl: true, // Default value
-		jwksUri: config.get<string>('auth.jwksUri'),
-		requestHeaders: {}, // Optional
+		jwksUri: `https://${config.get<string>('auth.authority')}/${config.get<
+			string
+		>('auth.tenantId')}/${config.get<string>('auth.keyDiscovery')}`,
 	})
-
-	// this will reach out and try to get the signing key from the key set based on the unique id
 	const signingKey = await getSigningKeyPromise(kid, client)
 
-	//once found it will verify the token with that signing k`ey
-	const decodedAndVerified = jwt.verify(idToken, signingKey)
+	// Use the public key to verify the token signature
+	// Also validate the token issuer is from the expected authority
+	// And that the audience of the token is this current API
+	const decodedAndVerified = jwt.verify(accessToken, signingKey, {
+		issuer: `https://${config.get<string>('auth.authority')}/${config.get<
+			string
+		>('auth.tenantId')}/${config.get<string>('auth.version')}`,
+		audience: config.get<string>('auth.clientId'),
+	})
+
+	log('Parsed, verified and validated token: %O', decodedAndVerified)
+
 	if (!decodedAndVerified) {
 		throw Error('verification returned null')
 	}
-
-	//if everything passes this is where you should verify that it was issued by the expected tenant id / client id / application by checking the claims and comparing them to your Azure AD App Registration. At this point it's still possible that the token was created by a different Azure AD tenant, we've technically just verified that it was signed by microsoft and everything inside is true, we don't yet know that it was issued by our authentication application specifically. But there will be a claim inside the token that indicates the ids of the tenant / app registration that we can double check.
 
 	//if everything has gone to plan, our JWT is valid and we can safely return the decoded version.
 	return decodedAndVerified
