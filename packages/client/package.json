@@ -10,6 +10,7 @@
 		"@azure/storage-blob": "^12.2.0-preview.1",
 		"@essex-js-toolkit/hooks": "^1.1.2",
 		"@essex-js-toolkit/themed-components": "^1.1.2",
+		"@essex/msal-interactor": "^2.0.1",
 		"@fluentui/react": "^7.126.0",
 		"@newsthreads/schema": "workspace:packages/schema",
 		"@reduxjs/toolkit": "^1.4.0",

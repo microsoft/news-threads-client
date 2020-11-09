@@ -379,6 +379,26 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@azure/msal-browser", [
+        ["npm:2.6.0", {
+          "packageLocation": "./.yarn/cache/@azure-msal-browser-npm-2.6.0-d17ce771c1-977a844d87.zip/node_modules/@azure/msal-browser/",
+          "packageDependencies": [
+            ["@azure/msal-browser", "npm:2.6.0"],
+            ["@azure/msal-common", "npm:1.7.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@azure/msal-common", [
+        ["npm:1.7.0", {
+          "packageLocation": "./.yarn/cache/@azure-msal-common-npm-1.7.0-6998cd6754-1365a88b1d.zip/node_modules/@azure/msal-common/",
+          "packageDependencies": [
+            ["@azure/msal-common", "npm:1.7.0"],
+            ["debug", "virtual:88318143fb6d80d1f55c54ae799fe6cfcf29c86ca9b9dae7a485ec5bdb22c3a20f79119854bb9696c57b5a03879e8671e3e9d39fcd8ca2cec3e6655f73233a79#npm:4.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@azure/storage-blob", [
         ["npm:12.2.1", {
           "packageLocation": "./.yarn/cache/@azure-storage-blob-npm-12.2.1-f3bcceb4aa-4a75fe365f.zip/node_modules/@azure/storage-blob/",
@@ -4643,6 +4663,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@essex/msal-interactor", [
+        ["npm:2.0.1", {
+          "packageLocation": "./.yarn/cache/@essex-msal-interactor-npm-2.0.1-25b588564e-81bda81ee9.zip/node_modules/@essex/msal-interactor/",
+          "packageDependencies": [
+            ["@essex/msal-interactor", "npm:2.0.1"],
+            ["@azure/msal-browser", "npm:2.6.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@essex/prettier-config", [
         ["npm:10.0.0", {
           "packageLocation": "./.yarn/cache/@essex-prettier-config-npm-10.0.0-1c5f4da922-ab8480fb7c.zip/node_modules/@essex/prettier-config/",
@@ -6405,6 +6435,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@azure/storage-blob", "npm:12.2.1"],
             ["@essex-js-toolkit/hooks", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:1.1.2"],
             ["@essex-js-toolkit/themed-components", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:1.1.2"],
+            ["@essex/msal-interactor", "npm:2.0.1"],
             ["@essex/scripts", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:11.0.1"],
             ["@essex/webpack-config", "virtual:7ad0b0816776592415fe954a57d3b3d6b22c0f07e6a4ef4a64a5a055c7cecc8d3e2b45bb04653444f50f5e42449b9e38e7c8d11b70353209799f6cec22ad2dcc#npm:10.0.2"],
             ["@fluentui/react", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:7.147.1"],

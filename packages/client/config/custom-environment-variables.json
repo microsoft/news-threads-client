@@ -1,7 +1,6 @@
 {
 	"api": {
 		"url": {
-			"restApi": "REST_API",
 			"graphqlApi": "GRAPHQL_API"
 		}
 	},

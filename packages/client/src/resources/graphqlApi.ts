@@ -11,16 +11,18 @@ import {
 } from '@apollo/client'
 import { BatchHttpLink } from '@apollo/link-batch-http'
 import { setContext } from '@apollo/link-context'
-import { store } from '../state'
+import { msalInteractorInstance } from './msalInteractorInstance'
 
 const setAuthorizationLink = setContext(async (req, prevContext) => {
-	const state = store.getState()
-	if (!state.auth.jwtIdToken) {
+	if (CONFIG.auth.disabled) {
 		return {}
 	} else {
+		const accessToken = await msalInteractorInstance.getAccessToken([
+			'https://newsdive-api.azurewebsites.net/.default',
+		])
 		return {
 			headers: {
-				Authorization: state.auth.jwtIdToken,
+				Authorization: `Bearer ${accessToken}`,
 			},
 		}
 	}
