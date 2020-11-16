@@ -32,16 +32,9 @@ export const server = new ApolloServer({
 		} else {
 			const authorizationHeader = request.headers.authorization
 			if (!authorizationHeader) {
-				throw new AuthenticationError(
-					`Authentication error. Authorization header is missing`,
-				)
+				throw new AuthenticationError(`Unauthenticated.`)
 			}
 			const [, accessToken] = authorizationHeader.split(' ')
-			if (!accessToken) {
-				throw new AuthenticationError(
-					`Authentication error. Unable to parse Bearer accessToken from Authorization header: ${authorizationHeader}.`,
-				)
-			}
 
 			try {
 				const accessTokenClaims = await decodeToken(accessToken)

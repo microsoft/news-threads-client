@@ -8,7 +8,6 @@
 		"disabled": true,
 		"authority": "",
 		"client_id": "",
-		"redirect_uri": "http://localhost:8080/",
 		"scopes": "https://graph.microsoft.com/.default,openid,profile,email"
 	},
 	"feature": {

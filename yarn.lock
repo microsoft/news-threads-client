@@ -229,21 +229,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@azure/msal-browser@npm:^2.5.1":
-  version: 2.6.0
-  resolution: "@azure/msal-browser@npm:2.6.0"
+"@azure/msal-browser@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "@azure/msal-browser@npm:2.7.0"
   dependencies:
-    "@azure/msal-common": ^1.7.0
-  checksum: 977a844d8702657aa617dc2dfbeb3c1658cb7f12bada302c60bf7b6cb8a7059e562419d746f7c2bc8b97fd16b4bbd59e23050c0fa0973e57b7926f93ba136cd3
+    "@azure/msal-common": ^1.7.2
+  checksum: 1800fdd1638ca34335ae4004911f443ab49ef004a2a92270263a0248fbba71140487515134b87dd8e4e3c4ab1d4e64e7fbf2a8576c557444990347d252103500
   languageName: node
   linkType: hard
 
-"@azure/msal-common@npm:^1.7.0":
-  version: 1.7.0
-  resolution: "@azure/msal-common@npm:1.7.0"
+"@azure/msal-common@npm:^1.7.2":
+  version: 1.7.2
+  resolution: "@azure/msal-common@npm:1.7.2"
   dependencies:
     debug: ^4.1.1
-  checksum: 1365a88b1d32cb54de5af2da18cc38bc2c4b0b9a69354b48b9279872cc5cc346e17cba35d389fb45e7f85c4576811197655e99e21946129c44be3dcf13efefbb
+  checksum: 31c79d5ed895d8523260ad003dd27d0c18ab777c6f844349f1fbb3981c0cf40854d1a3027e5b80ee99a6aeaac64e08c8e3f0b66a7c561f05f91c08f0801ed3a6
+  languageName: node
+  linkType: hard
+
+"@azure/msal-react@npm:^1.0.0-alpha.0":
+  version: 1.0.0-alpha.0
+  resolution: "@azure/msal-react@npm:1.0.0-alpha.0"
+  peerDependencies:
+    "@azure/msal-browser": ^2.7.0
+    react: ^16.13.0 || ^17
+  checksum: 3fc9f531ddb0f446c34158ff241e4501aba0973a842803e124a01771892debc4d0d7d0ad2cd3a4c37998990730598d70659417cacaaef570d5d0c72cee83274b
   languageName: node
   linkType: hard
 
@@ -2354,12 +2364,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@essex/msal-interactor@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "@essex/msal-interactor@npm:2.0.1"
+"@essex/msal-interactor@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@essex/msal-interactor@npm:3.0.0"
   dependencies:
-    "@azure/msal-browser": ^2.5.1
-  checksum: 81bda81ee9fa40177e4bc0f6c8c4cda2e319175137a9d52e968cb6967fca5e82122b0cbf437baf9a3cc15c8e8c2a0e07ce0deac5eaeb0d28587468c83273e0f7
+    debug: ^4.2.0
+  peerDependencies:
+    "@azure/msal-browser": "> 2"
+  checksum: 103a5804ab0c51c69a52364e2898e886d98716a76a5b99c3c0532c6994adb4a346a6c5accab7f29c79c0aca6e1a4484f6f03b1ac3da62b292a85f3658c07c8aa
   languageName: node
   linkType: hard
 
@@ -3423,10 +3435,12 @@ __metadata:
     "@apollo/client": ^3.1.2
     "@apollo/link-batch-http": ^2.0.0-beta.3
     "@apollo/link-context": ^2.0.0-beta.3
+    "@azure/msal-browser": ^2.7.0
+    "@azure/msal-react": ^1.0.0-alpha.0
     "@azure/storage-blob": ^12.2.0-preview.1
     "@essex-js-toolkit/hooks": ^1.1.2
     "@essex-js-toolkit/themed-components": ^1.1.2
-    "@essex/msal-interactor": ^2.0.1
+    "@essex/msal-interactor": ^3.0.0
     "@essex/scripts": ^11.0.1
     "@essex/webpack-config": ^10.0.2
     "@fluentui/react": ^7.126.0
@@ -3470,7 +3484,6 @@ __metadata:
     mime-types: ^2.1.27
     minimist: ^1.2.5
     moment: ^2.27.0
-    msal: ^1.3.3
     office-ui-fabric-react: ^7.147.1
     query-string: ^6.13.1
     rc-slider: ~9.2.4
@@ -17183,15 +17196,6 @@ fsevents@^1.2.7:
   version: 2.1.2
   resolution: "ms@npm:2.1.2"
   checksum: 9b65fb709bc30c0c07289dcbdb61ca032acbb9ea5698b55fa62e2cebb04c5953f1876a1f3f7f4bc2e91d4bf4d86003f3e207c3bc6ee2f716f99827e62389cd0e
-  languageName: node
-  linkType: hard
-
-"msal@npm:^1.3.3":
-  version: 1.4.1
-  resolution: "msal@npm:1.4.1"
-  dependencies:
-    tslib: ^1.9.3
-  checksum: dc4f43f45104a213d2563bc24695957d9983bbbfd1a09f48c3e6745d71bb09ac28131551b6485b4c749cdcb2104b054976a21450298c4a7c50b2ef4163f26ac1
   languageName: node
   linkType: hard
 

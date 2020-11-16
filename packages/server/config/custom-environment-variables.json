@@ -6,7 +6,9 @@
 	},
 	"auth": {
 		"disabled": "AUTH_DISABLED",
-		"jwksUri": "AUTH_JWKS_URI"
+		"clientId": "CLIENT_ID",
+		"authority": "AUTHORITY",
+		"tenantId": "TENANT_ID"
 	},
 	"apollo": {
 		"muteErrors": "MUTE_SERVICE_ERRORS"

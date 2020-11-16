@@ -11,19 +11,25 @@ import {
 } from '@apollo/client'
 import { BatchHttpLink } from '@apollo/link-batch-http'
 import { setContext } from '@apollo/link-context'
-import { msalInteractorInstance } from './msalInteractorInstance'
+import { getAccessToken } from '@essex/msal-interactor'
+import { msalInstance } from './msalInstance'
 
 const setAuthorizationLink = setContext(async (req, prevContext) => {
 	if (CONFIG.auth.disabled) {
 		return {}
 	} else {
-		const accessToken = await msalInteractorInstance.getAccessToken([
-			'https://newsdive-api.azurewebsites.net/.default',
-		])
-		return {
-			headers: {
-				Authorization: `Bearer ${accessToken}`,
-			},
+		const accounts = msalInstance.getAllAccounts()
+		if (accounts.length) {
+			const accessToken = await getAccessToken(msalInstance, accounts[0], [
+				'https://newsdive-api.azurewebsites.net/.default',
+			])
+			return {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		} else {
+			return {}
 		}
 	}
 })

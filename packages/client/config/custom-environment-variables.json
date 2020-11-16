@@ -8,7 +8,6 @@
 		"disabled": "AUTH_DISABLED",
 		"authority": "AUTH_AUTHORITY",
 		"client_id": "AUTH_CLIENT_ID",
-		"redirect_uri": "AUTH_REDIRECT_URI",
 		"scopes": "AUTH_SCOPES"
 	},
 	"feature": {

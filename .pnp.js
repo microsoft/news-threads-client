@@ -380,21 +380,40 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@azure/msal-browser", [
-        ["npm:2.6.0", {
-          "packageLocation": "./.yarn/cache/@azure-msal-browser-npm-2.6.0-d17ce771c1-977a844d87.zip/node_modules/@azure/msal-browser/",
+        ["npm:2.7.0", {
+          "packageLocation": "./.yarn/cache/@azure-msal-browser-npm-2.7.0-d3834b4ed3-1800fdd163.zip/node_modules/@azure/msal-browser/",
           "packageDependencies": [
-            ["@azure/msal-browser", "npm:2.6.0"],
-            ["@azure/msal-common", "npm:1.7.0"]
+            ["@azure/msal-browser", "npm:2.7.0"],
+            ["@azure/msal-common", "npm:1.7.2"]
           ],
           "linkType": "HARD",
         }]
       ]],
       ["@azure/msal-common", [
-        ["npm:1.7.0", {
-          "packageLocation": "./.yarn/cache/@azure-msal-common-npm-1.7.0-6998cd6754-1365a88b1d.zip/node_modules/@azure/msal-common/",
+        ["npm:1.7.2", {
+          "packageLocation": "./.yarn/cache/@azure-msal-common-npm-1.7.2-1b87a970e7-31c79d5ed8.zip/node_modules/@azure/msal-common/",
           "packageDependencies": [
-            ["@azure/msal-common", "npm:1.7.0"],
+            ["@azure/msal-common", "npm:1.7.2"],
             ["debug", "virtual:88318143fb6d80d1f55c54ae799fe6cfcf29c86ca9b9dae7a485ec5bdb22c3a20f79119854bb9696c57b5a03879e8671e3e9d39fcd8ca2cec3e6655f73233a79#npm:4.3.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@azure/msal-react", [
+        ["virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:1.0.0-alpha.0", {
+          "packageLocation": "./.yarn/$$virtual/@azure-msal-react-virtual-27d9a3c596/0/cache/@azure-msal-react-npm-1.0.0-alpha.0-886cce1f3b-3fc9f531dd.zip/node_modules/@azure/msal-react/",
+          "packageDependencies": [
+            ["@azure/msal-react", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:1.0.0-alpha.0"],
+            ["@azure/msal-browser", "npm:2.7.0"],
+            ["@types/azure__msal-browser", null],
+            ["@types/react", "npm:16.9.44"],
+            ["react", "npm:16.14.0"]
+          ],
+          "packagePeers": [
+            "@azure/msal-browser",
+            "@types/azure__msal-browser",
+            "@types/react",
+            "react"
           ],
           "linkType": "HARD",
         }]
@@ -4664,11 +4683,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@essex/msal-interactor", [
-        ["npm:2.0.1", {
-          "packageLocation": "./.yarn/cache/@essex-msal-interactor-npm-2.0.1-25b588564e-81bda81ee9.zip/node_modules/@essex/msal-interactor/",
+        ["virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:3.0.0", {
+          "packageLocation": "./.yarn/$$virtual/@essex-msal-interactor-virtual-68235d88ab/0/cache/@essex-msal-interactor-npm-3.0.0-af1c8c6a66-103a5804ab.zip/node_modules/@essex/msal-interactor/",
           "packageDependencies": [
-            ["@essex/msal-interactor", "npm:2.0.1"],
-            ["@azure/msal-browser", "npm:2.6.0"]
+            ["@essex/msal-interactor", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:3.0.0"],
+            ["@azure/msal-browser", "npm:2.7.0"],
+            ["@types/azure__msal-browser", null],
+            ["debug", "virtual:88318143fb6d80d1f55c54ae799fe6cfcf29c86ca9b9dae7a485ec5bdb22c3a20f79119854bb9696c57b5a03879e8671e3e9d39fcd8ca2cec3e6655f73233a79#npm:4.3.0"]
+          ],
+          "packagePeers": [
+            "@azure/msal-browser",
+            "@types/azure__msal-browser"
           ],
           "linkType": "HARD",
         }]
@@ -6432,10 +6457,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@apollo/client", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:3.2.5"],
             ["@apollo/link-batch-http", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:2.0.0-beta.3"],
             ["@apollo/link-context", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:2.0.0-beta.3"],
+            ["@azure/msal-browser", "npm:2.7.0"],
+            ["@azure/msal-react", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:1.0.0-alpha.0"],
             ["@azure/storage-blob", "npm:12.2.1"],
             ["@essex-js-toolkit/hooks", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:1.1.2"],
             ["@essex-js-toolkit/themed-components", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:1.1.2"],
-            ["@essex/msal-interactor", "npm:2.0.1"],
+            ["@essex/msal-interactor", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:3.0.0"],
             ["@essex/scripts", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:11.0.1"],
             ["@essex/webpack-config", "virtual:7ad0b0816776592415fe954a57d3b3d6b22c0f07e6a4ef4a64a5a055c7cecc8d3e2b45bb04653444f50f5e42449b9e38e7c8d11b70353209799f6cec22ad2dcc#npm:10.0.2"],
             ["@fluentui/react", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:7.147.1"],
@@ -6479,7 +6506,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["mime-types", "npm:2.1.27"],
             ["minimist", "npm:1.2.5"],
             ["moment", "npm:2.29.1"],
-            ["msal", "npm:1.4.1"],
             ["office-ui-fabric-react", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:7.147.1"],
             ["query-string", "npm:6.13.6"],
             ["rc-slider", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:9.2.4"],
@@ -23555,16 +23581,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["msal", [
-        ["npm:1.4.1", {
-          "packageLocation": "./.yarn/cache/msal-npm-1.4.1-cc6acca257-dc4f43f451.zip/node_modules/msal/",
-          "packageDependencies": [
-            ["msal", "npm:1.4.1"],
-            ["tslib", "npm:1.14.1"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["multicast-dns", [
         ["npm:6.2.3", {
           "packageLocation": "./.yarn/cache/multicast-dns-npm-6.2.3-e5ffad56a4-3a67f9a155.zip/node_modules/multicast-dns/",
@@ -26226,7 +26242,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-aad-msal", "virtual:acfc3e51e1bea4f336a3943f05ad25247be5e9a4a23164e8157c6041cda0b44131cb62cfd77fecf3293ecadb7f17d4c8d0c8299f858b2741703bf1d6764aa522#npm:2.3.5"],
             ["@types/msal", null],
             ["@types/react", "npm:16.9.44"],
-            ["msal", "npm:1.4.1"],
+            ["msal", null],
             ["react", "npm:16.14.0"],
             ["redux", "npm:4.0.4"]
           ],
