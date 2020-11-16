@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { useDimensions } from '@essex-js-toolkit/hooks'
-import { Dataset } from '@newsthreads/schema/lib/client-types'
 import { Theme } from '@thematic/core/lib/Theme'
 import { useThematic } from '@thematic/react'
 import moment from 'moment'
@@ -19,6 +18,7 @@ import { Visible } from '../Visible'
 import { TimeBrush } from '../charts/TimeBrush'
 import { QueryTokenDailyBars } from './QueryTokenDailyBars'
 import { SearchTermDailyBars } from './SearchTermDailyBars'
+import { Dataset } from '@newsthreads/schema/lib/client-types'
 
 const DOCUMENT_MAGIC = '__documents__'
 const CHART_WIDTH = 800

@@ -3,8 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { MsalProvider } from '@azure/msal-react'
-import React from 'react'
-import { memo } from 'react'
+import React, { memo } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { msalInstance } from '../../resources/msalInstance'
 import { AuthProtect } from './AuthProtect'

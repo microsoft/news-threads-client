@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { useIsAuthenticated, useMsal } from '@azure/msal-react'
-import React, { memo, useState, useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 
 export const AuthProtect: React.FC = memo(function AuthProtect({ children }) {
 	const msal = useMsal()
@@ -17,7 +17,7 @@ export const AuthProtect: React.FC = memo(function AuthProtect({ children }) {
 			}
 		}
 		authenticate()
-	}, [])
+	}, [isAuthenticated, msal.instance])
 
 	if (!isAuthenticated) {
 		return <>Loading...</>
