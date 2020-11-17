@@ -1,7 +1,11 @@
 {
 	"auth": {
 		"disabled": true,
-		"jwksUri": "TODO_SET_JWKS_URI"
+		"clientId": "TODO_SET_AAD_CLIENT_ID",
+		"authority": "TODO_SET_AAD_AUTHORITY",
+		"tenantId": "TODO_SET_TENANT_ID",
+		"version": "v2.0",
+		"keyDiscovery": "discovery/v2.0/keys"
 	},
 	"database": {
 		"url": "mongodb://localhost:27017/",

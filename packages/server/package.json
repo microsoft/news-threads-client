@@ -6,13 +6,10 @@
 	"scripts": {
 		"slurp": "node ../scripts/lib/index.js",
 		"clean": "essex clean build dist",
-		"start:tsc": "tsc -w --preserveWatchOutput",
 		"start:wp": "webpack -w",
 		"start:functions": "func start",
 		"start": "run-p start:wp start:functions",
-		"build:tsc": "tsc -p .",
-		"build:wp": "webpack",
-		"build": "run-s build:tsc build:wp",
+		"build": "webpack",
 		"bundle": "yarn slurp zip deploy.zip config dist graphql host.json package.json",
 		"deploy": "az functionapp deployment source config-zip --subscription $NT_SUBSCRIPTION -g $NT_GROUP -n $NT_API_NAME --src ./deploy.zip",
 		"deploy:server": "yarn deploy"
@@ -38,6 +35,7 @@
 		"@types/lodash": "^4.14.162",
 		"@types/mongodb": "^3.5.28",
 		"@types/node": "^14.11.10",
+		"azure-functions-core-tools": "^2.7.2936",
 		"config-webpack": "^1.0.4",
 		"graphql-tag": "^2.11.0",
 		"npm-run-all": "^4.1.5",

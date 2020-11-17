@@ -11,17 +11,27 @@ import {
 } from '@apollo/client'
 import { BatchHttpLink } from '@apollo/link-batch-http'
 import { setContext } from '@apollo/link-context'
-import { store } from '../state'
+import { getAccessToken } from '@essex/msal-interactor'
+import { msalInstance } from './msalInstance'
 
 const setAuthorizationLink = setContext(async (req, prevContext) => {
-	const state = store.getState()
-	if (!state.auth.jwtIdToken) {
+	if (CONFIG.auth.disabled) {
 		return {}
 	} else {
-		return {
-			headers: {
-				Authorization: state.auth.jwtIdToken,
-			},
+		const accounts = msalInstance.getAllAccounts()
+		if (accounts.length) {
+			const accessToken = await getAccessToken(
+				msalInstance,
+				accounts[0],
+				CONFIG.auth.apiScopes.split(','),
+			)
+			return {
+				headers: {
+					Authorization: `Bearer ${accessToken}`,
+				},
+			}
+		} else {
+			return {}
 		}
 	}
 })

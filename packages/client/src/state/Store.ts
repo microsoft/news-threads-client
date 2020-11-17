@@ -19,7 +19,6 @@ import {
 	searchReducer,
 	themeReducer,
 	diffReducer,
-	authReducer,
 	themeChanged,
 	queriesReducer,
 } from './slices'
@@ -28,7 +27,6 @@ const epicMiddleware = createEpicMiddleware()
 
 export const store = configureStore({
 	reducer: {
-		auth: authReducer,
 		dataset: datasetReducer,
 		search: searchReducer,
 		theme: themeReducer,

@@ -3,10 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Spinner, SearchBox } from '@fluentui/react'
-import {
-	SentenceClusterSortBy,
-	SortDirection,
-} from '@newsthreads/schema/lib/client-types'
 import { Theme } from '@thematic/core'
 import { useThematic } from '@thematic/react'
 import React, { memo, useCallback } from 'react'
@@ -19,6 +15,10 @@ import {
 import { Sort } from '../Sort'
 import { Visible } from '../Visible'
 import { ClusterRow } from './ClusterRow'
+import {
+	SentenceClusterSortBy,
+	SortDirection,
+} from '@newsthreads/schema/lib/client-types'
 
 const sortByOptions1: string[] = ['Instances', 'Duplicates', 'Variants']
 const sortByOptions2: string[] = [

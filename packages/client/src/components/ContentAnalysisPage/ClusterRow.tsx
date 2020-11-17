@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { IconButton } from '@fluentui/react'
-import { SentenceCluster } from '@newsthreads/schema/lib/client-types'
 import { useThematic } from '@thematic/react'
 import { format } from 'd3-format'
 import React, { memo, useCallback, useMemo, useState } from 'react'
@@ -13,6 +12,7 @@ import { plural } from '../../util/format'
 import { HighlightedText } from '../HighlightedText'
 import { Separator } from '../Separator'
 import { TextList } from '../charts/TextList'
+import { SentenceCluster } from '@newsthreads/schema/lib/client-types'
 
 interface ClusterRowProps {
 	cluster: SentenceCluster

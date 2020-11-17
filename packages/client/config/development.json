@@ -1,7 +1,1 @@
-{
-	"auth": {
-		"disabled": true,
-		"authority": null,
-		"client_id": null
-	}
-}
+{}

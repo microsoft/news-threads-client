@@ -1,4 +1,7 @@
 {
+	"auth": {
+		"disabled": false
+	},
 	"apollo": {
 		"playground": false,
 		"perfTracing": false

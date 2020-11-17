@@ -78,8 +78,8 @@ declare const CONFIG: {
 		use_logger: boolean
 		authority: string
 		client_id: string
-		redirect_uri: string
 		scopes: string
+		apiScopes: string
 	}
 	feature: Record<string, boolean>
 	search: {
