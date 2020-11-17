@@ -48,7 +48,7 @@ jobs:
 
       - name: Deploy Server
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        uses: Azure/functions-action@v1.1.5
+        uses: Azure/functions-action@v1.1.8
         with:
           app-name: ${{ secrets.SERVER_DEPLOY_AZURE_FUNCTION_APPNAME }}
           package: ${{ github.workspace }}/packages/server/deploy.zip
