@@ -20,9 +20,11 @@ const setAuthorizationLink = setContext(async (req, prevContext) => {
 	} else {
 		const accounts = msalInstance.getAllAccounts()
 		if (accounts.length) {
-			const accessToken = await getAccessToken(msalInstance, accounts[0], [
-				'https://newsdive-api.azurewebsites.net/.default',
-			])
+			const accessToken = await getAccessToken(
+				msalInstance,
+				accounts[0],
+				CONFIG.auth.apiScopes.split(','),
+			)
 			return {
 				headers: {
 					Authorization: `Bearer ${accessToken}`,

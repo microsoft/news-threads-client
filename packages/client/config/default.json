@@ -8,7 +8,8 @@
 		"disabled": true,
 		"authority": "",
 		"client_id": "",
-		"scopes": "https://graph.microsoft.com/.default,openid,profile,email"
+		"scopes": "https://graph.microsoft.com/.default,openid,profile,email",
+		"apiScopes": "https://newsdive-api.azurewebsites.net/.default"
 	},
 	"feature": {
 		"apolloDevTools": true,
