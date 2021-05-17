@@ -3553,7 +3553,7 @@ __metadata:
     "@types/mongodb": ^3.5.28
     "@types/node": ^14.11.10
     apollo-server-azure-functions: ^2.18.2
-    azure-functions-core-tools: ^2.7.2936
+    azure-functions-core-tools: ^3.0.0
     config: ^3.3.1
     config-webpack: ^1.0.4
     dataloader: ^2.0.0
@@ -7258,9 +7258,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"azure-functions-core-tools@npm:^2.7.2936":
-  version: 2.7.2936
-  resolution: "azure-functions-core-tools@npm:2.7.2936"
+"azure-functions-core-tools@npm:^3.0.0":
+  version: 3.0.3442
+  resolution: "azure-functions-core-tools@npm:3.0.3442"
   dependencies:
     chalk: 3.0.0
     command-exists: 1.2.8
@@ -7274,7 +7274,7 @@ __metadata:
     azfun: lib/main.js
     azurefunctions: lib/main.js
     func: lib/main.js
-  checksum: 5f4b5cf1c99bc6092480c27f6661d20bf73ff63914aa48bafcaa65b8729a5cdae92dd42644b8e9762eb848a898fec3dfcba9cc18292c635b3c37d29865f881b0
+  checksum: 1bf5d6e1b05dfc7dd5285fbad9681da82155012e95270a72df001d435a89094a0b0a8b112263f1bd24e1c6fb1cb9b7973d054dee3aac79c84c97f752de2487ea
   languageName: node
   linkType: hard
 
