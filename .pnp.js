@@ -6581,7 +6581,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/mongodb", "npm:3.5.28"],
             ["@types/node", "npm:14.11.10"],
             ["apollo-server-azure-functions", "virtual:53bdb8d2ffde6cc5e0241bae43dcd11944c7c70d723a940b8371af1d29666691771e56e6502f6abc0eb87794f641019e85c61f2481d77e0ca3abb78de45f8d47#npm:2.18.2"],
-            ["azure-functions-core-tools", "npm:2.7.2936"],
+            ["azure-functions-core-tools", "npm:3.0.3442"],
             ["config", "npm:3.3.2"],
             ["config-webpack", "virtual:53bdb8d2ffde6cc5e0241bae43dcd11944c7c70d723a940b8371af1d29666691771e56e6502f6abc0eb87794f641019e85c61f2481d77e0ca3abb78de45f8d47#npm:1.0.4"],
             ["dataloader", "npm:2.0.0"],
@@ -12184,10 +12184,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["azure-functions-core-tools", [
-        ["npm:2.7.2936", {
-          "packageLocation": "./.yarn/unplugged/azure-functions-core-tools-npm-2.7.2936-835b4de62d/node_modules/azure-functions-core-tools/",
+        ["npm:3.0.3442", {
+          "packageLocation": "./.yarn/unplugged/azure-functions-core-tools-npm-3.0.3442-c68842bc0e/node_modules/azure-functions-core-tools/",
           "packageDependencies": [
-            ["azure-functions-core-tools", "npm:2.7.2936"],
+            ["azure-functions-core-tools", "npm:3.0.3442"],
             ["chalk", "npm:3.0.0"],
             ["command-exists", "npm:1.2.8"],
             ["glob", "npm:7.1.6"],

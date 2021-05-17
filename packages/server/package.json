@@ -35,7 +35,7 @@
 		"@types/lodash": "^4.14.162",
 		"@types/mongodb": "^3.5.28",
 		"@types/node": "^14.11.10",
-		"azure-functions-core-tools": "^2.7.2936",
+		"azure-functions-core-tools": "^3.0.0",
 		"config-webpack": "^1.0.4",
 		"graphql-tag": "^2.11.0",
 		"npm-run-all": "^4.1.5",
