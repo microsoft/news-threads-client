@@ -125,11 +125,7 @@ function usePivotItemSelectedHandler(): (item?: PivotItem) => void {
 	return useCallback(
 		(item?: PivotItem) => {
 			if (item) {
-				history.push({
-					...history.location,
-					search: window.location.search,
-					pathname: item.props.itemKey || '/',
-				})
+				history.push(item.props.itemKey || '/')
 			}
 		},
 		[history],

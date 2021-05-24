@@ -4,7 +4,7 @@
  */
 import { MsalProvider } from '@azure/msal-react'
 import React, { memo } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { HashRouter as Router } from 'react-router-dom'
 import { msalInstance } from '../../resources/msalInstance'
 import { AuthProtect } from './AuthProtect'
 import { DataContext } from './DataContext'
