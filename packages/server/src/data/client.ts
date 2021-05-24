@@ -35,7 +35,7 @@ function connectToDataset(dataset: DatasetId): Promise<MongoClient> {
 	const root = config.get<string>('database.url')
 	// if the root doesn't have a trailing slash, insert one
 	const separator = root.endsWith('/') ? '' : '/'
-	const connection = `${root}${separator}${dataset}`
+	const connection = `${root}${separator}${dataset}?authSource=admin`
 	log(`connect to ${connection}`)
 	return MongoClient.connect(connection, { connectTimeoutMS, appname })
 }
