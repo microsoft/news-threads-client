@@ -27,7 +27,7 @@ By default, the Azure Function API will run on port `7071` and connect to a loca
 ## Startup
 
 ```sh
-> yarn # --ignore-engines (if azure gives you grief about node version)
+> yarn # --ignore-engines (if azure has an issue with node version)
 > yarn start
 ```
 
