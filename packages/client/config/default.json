@@ -9,7 +9,7 @@
 		"authority": "",
 		"client_id": "",
 		"scopes": "openid,profile,email,offline_access",
-		"apiScopes": "api://9f07691d-c167-4c70-a75d-39836fd95338/.default"
+		"apiScopes": ""
 	},
 	"feature": {
 		"apolloDevTools": true,
