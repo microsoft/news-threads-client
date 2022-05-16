@@ -49,7 +49,7 @@
 		"graphql": "^14.7.0",
 		"immer": "^7.0.7",
 		"lodash": "^4.17.19",
-		"moment": "^2.27.0",
+		"moment": "^2.29.2",
 		"office-ui-fabric-react": "^7.147.1",
 		"query-string": "^6.13.1",
 		"rc-slider": "~9.2.4",
